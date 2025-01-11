@@ -1,0 +1,79 @@
+
+/*
+ * Docker commands: 
+open -a docker
+docker ps -a
+docker start oracle-xe-18c
+docker stop oracle-xe-18c
+
+ * ******
+ docker pull wnameless/oracle-xe-11g docker run -d -p 1521:1521 wnameless/oracle-xe-11g 
+ docker start 8b861fdc4b66688e472a595853f19cc684d31c11e6fb03f5176f2266eec7b164 
+ docker stop 8b861fdc4b66688e472a595853f19cc684d31c11e6fb03f5176f2266eec7b164
+ // https://docs.google.com/presentation/d/1Flty9ja07JDA3Cm7_1Yv_hKUfaRUz-NFHxmcImgEnLI/edit?usp=sharing //
+ */
+
+
+
+
+
+
+
+/* Supplementary configurartion annotations
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class} )
+@EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL)
+*/
+
+/* Enable Custom Json Mapper
+	@Bean
+	public Jackson2ObjectMapperBuilderCustomizer jacksonCustomizer() {
+	    return (mapperBuilder) -> mapperBuilder.modulesToInstall(new JaxbAnnotationModule());
+	}
+*/
+
+/* application.properties
+* connect to Oracle 12c/18c
+spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/XEPDB1
+#spring.datasource.url=jdbc:oracle:thin:@10.10.0.17:1521:ORCL
+spring.datasource.username=msd
+spring.datasource.password=msd
+spring.datasource.driver.class=oracle.jdbc.driver.OracleDriver
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.Oracle12cDialect
+
+* connect to PostgreSQL10
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=msd
+spring.datasource.password=msd
+spring.datasource.driver.class=org.postgresql.Driver
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL10Dialect
+
+*/
+
+/*
+# Script to manage 18c
+# Start docker
+open -a docker
+# Start container
+docker start 94277f0dc1ed
+# Stop container
+docker stop 94277f0dc1ed
+# Stop docker
+osascript -e 'quit app "Docker"'
+*/
+
+/*
+sudo -i
+VBoxManage startvm "Oracle DB Developer VM" --type headless
+###
+VBoxManage controlvm "Oracle DB Developer VM" savestate
+###
+
+drop user msd cascade;
+create user msd identified by msd
+default tablespace users
+temporary tablespace temp;
+
+grant connect, resource to msd;
+
+grant create view to msd;
+*/

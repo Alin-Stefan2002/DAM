@@ -1,0 +1,15 @@
+org\scrum\domain\project\Sofer.class
+org\scrum\domain\project\Vehicul.class
+repositories\PlataRepository.class
+repositories\VehiculRepository.class
+repositories\SoferRepository.class
+org\scrum\domain\project\Ruta.class
+repositories\ProgramRutaRepository.class
+repositories\PasagerRepository.class
+org\scrum\domain\project\BookingSystem.class
+org\scrum\domain\project\ProgramRuta.class
+repositories\TichetRepository.class
+org\scrum\domain\project\Tichet.class
+org\scrum\domain\project\Pasager.class
+repositories\RutaRepository.class
+org\scrum\domain\project\Plata.class
